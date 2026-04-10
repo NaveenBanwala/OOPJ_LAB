@@ -1,0 +1,120 @@
+//Ques.1 REpetation of code is  allowed
+#include <stdio.h>
+int main(){
+    int a[]={1, 2, 4, 10, 20, 40}; 
+    int N=sizeof(a) / sizeof(a[0]); 
+    int count=0;
+    int i=0;
+    while(i!=N){
+        for (int j = 0; j < N; j++) {
+            if (a[i] * a[j] == 40) {
+                printf("(%d,%d)\n",a[i],a[j]);
+                count++;
+            }
+        }
+        i++;
+    }
+    printf("Total pairs: %d\n", count);
+    return 0;
+}
+Output :
+(1,40)
+(2,20)
+(4,10)
+(10,4)
+(20,2)
+(40,1)
+Total pairs: 6
+//Ques 1: If repaeatsion is not allowd
+#include <stdio.h>
+int main() {
+    int a[] = {1, 2, 4, 10, 20, 40};
+    int N = sizeof(a) / sizeof(a[0]);
+    int count = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++) {
+            if (a[i] * a[j] == 40) {
+                printf("(%d, %d)\n", a[i], a[j]);
+                count++;
+            }
+        }
+    }
+    printf("Total pairs: %d\n", count);
+    return 0;
+}
+Output :
+(1,40)
+(2,20)
+(4,10)
+total pairs : 3
+//Ques 2:DElete node efrom a specific position 
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct node{
+    int data;
+    struct node*next;
+}p;
+    p* deleteatspecific(p*head,int pos){
+    int i=1;
+    p*temp,*dummy;
+    temp=head;
+    while(i<=pos-1 && temp!=NULL){
+        temp=temp->next;
+        i++;
+    }
+    dummy=temp->next;
+    temp->next=dummy->next;
+    free(dummy);
+    dummy=NULL;
+}  
+p* temp, * head, * newnode,*pf;
+int select;
+int main() {
+    int element;
+    //p* temp, * head, * newnode;
+    int pos;
+    int choice = 1;
+    int count = 0;
+
+    head = NULL;
+    while (choice) {
+        newnode = (p*)malloc(sizeof(p));
+        printf("Enter data:\n");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        if (head == NULL) {
+            head = temp = newnode;
+        } else {
+            temp->next = newnode;
+            temp=newnode;
+        }
+        printf("If you want to continue press 1/0:\n");
+        scanf("%d", &choice);
+    }
+        printf("Enter pos:");
+        scanf("%d",&pos);
+        p*New=deleteatspecific(head,pos);
+    printf("The linked list is:\n");
+    temp=head;
+    while(temp != NULL){
+        printf("%d-> ", temp->data);
+        temp=temp->next;
+        count++;
+    }
+}
+Output:
+Enter data:
+5
+If you want to continue press 1/0:
+1
+Enter data:
+4
+If you want to continue press 1/0:
+1
+Enter data:
+3
+If you want to continue press 1/0:
+0
+Enter pos:2
+The linked list is:
+5-> 4->NULL

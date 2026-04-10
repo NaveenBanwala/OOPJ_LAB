@@ -1,0 +1,18 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "here is First code of Node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "yes"
+  },
+  "author": "NAveen BAnwala",
+  "type":"module" ,
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

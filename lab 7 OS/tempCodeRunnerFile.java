@@ -1,0 +1,1 @@
+  // panel.setLayout(new FlowLayout());
